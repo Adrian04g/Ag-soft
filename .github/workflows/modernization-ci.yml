@@ -1,0 +1,39 @@
+name: modernization-ci
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+      - master
+      - 'copilot/**'
+
+permissions:
+  contents: read
+
+jobs:
+  build-test:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: modernization
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.0.x'
+
+      - name: Restore
+        run: dotnet restore GlobalSoft.Modernization.slnx
+
+      - name: Build
+        run: dotnet build GlobalSoft.Modernization.slnx --no-restore
+
+      - name: Test
+        run: dotnet test GlobalSoft.Modernization.slnx --no-build
+
+      - name: Validate prohibited files
+        run: ./scripts/validate-prohibited-files.sh

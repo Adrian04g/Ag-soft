@@ -1,0 +1,32 @@
+services:
+  postgres:
+    image: postgres:16
+    container_name: globalsoft-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: globalsoft
+      POSTGRES_DB: globalsoft_modernization
+      POSTGRES_HOST_AUTH_METHOD: trust
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  api:
+    build:
+      context: .
+      dockerfile: src/GlobalSoft.Modernization.Api/Dockerfile
+    container_name: globalsoft-api
+    depends_on:
+      - postgres
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ConnectionStrings__Postgres: Host=postgres;Port=5432;Database=globalsoft_modernization;Username=globalsoft
+      Database__UseInMemory: "false"
+      Authentication__Authority: https://example-oidc.local/realms/globalsoft
+      Authentication__Audience: globalsoft-api
+    ports:
+      - "8080:8080"
+
+volumes:
+  postgres_data:
