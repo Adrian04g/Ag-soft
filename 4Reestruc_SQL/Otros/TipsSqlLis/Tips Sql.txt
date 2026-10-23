@@ -1,0 +1,106 @@
+&&
+continuar(&gSqlExec0,'',0,1)
+end
+&& ojo con esto en todas las transacciones 
+idemp=?gIdemp
+
+mSqla = "Update Ven_Mesas "+;
+	"Set	Ocupada = 0 "+;
+	"Where	idemp=?gIdemp and Mesa=?mMesa and CodCto=?pcCenusu "
+
+IF !continuar(&gSqlExec0, msg(7027,48,"La Actualización En PreFactura NO Se Realizó.;",2,1)) 
+	EXIT 
+ENDIF 
+
+mCta 	= "Alma"
+mSqla 	= "Exec Tec_Sp_CtaEspecial ?gIdemp,'Alma',?pcCenUsu"
+gSqlCur = "Glb_Almacen"
+&gSqlExec2
+
+&& no utilizar la variable mFiltro
+
+&&campos en variables 	   
+mNCampos=AFIELDS(dTabla,mTabla)
+FOR r=1 TO mNCampos
+	mDato= ALLTRIM(mTabla)+"."+ALLTRIM(dTabla(r,1))
+	mNomCampo='m1Cxp_'+ALLTRIM(dTabla(r,1))
+	&mNomCampo = &mDato
+ENDFOR 
+
+
+
+	IF !mCommit
+		EXIT 
+	ENDIF 	
+
+&&Rollback
+continuar(0)
+
+
+&& continuar para comprobante
+IF !continuar(
+,"Ha Fallado El Grabado En Contabilidad Forma de Pago.")
+	        				mCommit = .F. 
+		        			EXIT 
+
+
+		     			ENDIF 			
+
+&&Begin 
+
+mRsa=SQLEXEC(gConex,"BEGIN TRAN")
+mMsg="Imposible dar inicio a la Transacción."+CHR(13)+"Posible Falla en  la conexión con el motor."+;
+	     CHR(13)+"De ser así debe salir y entrar nuevamente del Software."
+IF !continuar(mRsa,mMsg)
+   EXIT  
+ENDIF   
+
+&&end transaction 
+mMsg = "El cierre de la transacción no se ha podido realizar."+CHR(13)+"Verificar Conexion con el motor."
+IF !continuar(SQLEXEC(gConex,"COMMIT"),mMsg)
+	EXIT 
+ENDIF   	
+
+
+
+&&end del try
+CATCH TO loError
+   EXIT
+	
+FINALLY
+   IF VARTYPE(loError) != "L"
+      continuar(0)
+      mnError   = loError.ErrorNo 
+      mcMsg1    = "Error se produjo en la capa de Aplicacion."
+      mcMsg     = ALLTRIM(loError.Details) +CHR(13)+ALLTRIM(loError.LineContents)
+      mcProcNom = ALLTRIM(loError.Procedure)
+      mnLinea   = loError.LineNo
+      mcDet     = ALLTRIM(loError.LineContents)
+      mcSug     = ""
+      glbError(mnError,mcMsg,mcMsg1,mcProcNom,mnLinea) 
+   ENDIF
+ENDTRY
+
+
+&&campos de una tabla 
+SELECT * FROM information_schema.columns WHERE table_name = 'glb_terceros'
+
+
+&& campo memo vfp y varchar max 
+SQLEXEC(gconex,"SELECT CAST(notemp AS Text) AS notemp FROM glb_empresa","glb_empresa")
+ 
+
+&&PADL
+replicate ('0',(2 - len(month(fecfac)))) + convert(varchar, month(fecfac))
+
+&&proper
+dbo.fe_LetraCapital() as 
+
+
+
+DECLARE @valores VARCHAR(1000)
+SELECT @valores= COALESCE(@valores + ', ', '') + concat(codart,' ',rtrim(observa)) FROM ven_prefacdetalle where numpre=21194 and codcto=2	
+select @valores as valores
+
+
+cast(0 as numeric(18,2)) 

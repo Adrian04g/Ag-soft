@@ -1,0 +1,6 @@
+SELECT @@SERVERNAME
+SELECT HOST_NAME()
+
+
+exec sp_dropserver 'DESKTOP-6M4DPKO\SQLEXPRESS'
+exec sp_addserver 'SOPORTEGLB3\SQLEXPRESS',local

@@ -1,0 +1,2 @@
+"C:\Program Files\Microsoft SQL Server\110\COM\replmerg.EXE"  -Publisher SERVIDORGLB\GLOBALSOFT -PublisherDB ricoelpollo -Publication AranaMaestros -PublisherSecurityMode 0  -PublisherLogin sa -PublisherPassword Global123 -Distributor SERVIDORGLB\GLOBALSOFT -DistributorSecurityMode 0  -DistributorLogin sa -DistributorPassword Global123 -Subscriber OKEYSALITRE-PC\SALITREPLAZA      -SubscriptionType 1  -SubscriberSecurityMode 1  -SubscriberDB ricoelpollo
+ 

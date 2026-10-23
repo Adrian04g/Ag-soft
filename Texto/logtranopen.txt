@@ -1,0 +1,64 @@
+.	
+Mensage: Error al realizar movimientos de inventario fr_movimientos_vfp_sql
+Usuario:  IVONNE
+Hora   :  12/07/2021 04:52:06 PM.	
+Mensage: Error al realizar movimientos de inventario fr_movimientos_vfp_sql
+Usuario:  IVONNE
+Hora   :  15/07/2021 08:15:57 PM.	
+Mensage: Error al realizar movimientos de inventario fr_movimientos_vfp_sql
+Usuario:  IVONNE
+Hora   :  17/07/2021 04:39:38 PM.	
+Mensage: Error al realizar movimientos de inventario fr_movimientos_vfp_sql
+Usuario:  IVONNE
+Hora   :  17/07/2021 07:02:29 PM.	
+Mensage: Error al causar cuentas por pagar fr_facproveedor - modulo de compras
+Usuario:  IVONNE
+Hora   :  22/04/2022 04:45:01 PM.	
+Mensage: Error al causar cuentas por pagar fr_facproveedor - modulo de compras
+Usuario:  IVONNE
+Hora   :  22/04/2022 04:45:03 PM.	
+Mensage: Error al modificar causaciones de gastos fr_mod_facpro- modulo de compras
+Usuario:  IVONNE
+Hora   :  22/04/2022 04:46:35 PM.	
+Mensage: Error en comprobantes de egresos fr_compegreso - modulo tesoreria
+Usuario:  IVONNE
+Hora   :  30/09/2022 01:49:41 PM.	
+Mensage: Error al causar cuentas por pagar fr_facproveedor - modulo de compras
+Usuario:  MASTER
+Hora   :  13/01/2023 03:52:41 PM.	
+Mensage: Error en toma fisica y aplicar conteo fr_inventario_fecha
+Usuario:  IVONNE
+Hora   :  02/02/2023 05:13:42 PM.	
+Mensage: Error en toma fisica y aplicar conteo fr_inventario_fecha
+Usuario:  IVONNE
+Hora   :  03/02/2023 06:34:04 PM.	
+Mensage: Error al causar cuentas por pagar fr_facproveedor - modulo de compras
+Usuario:  IVONNE
+Hora   :  15/09/2023 07:18:18 PM.	
+Mensage: Error en comprobantes de egresos fr_compegreso - modulo tesoreria
+Usuario:  MASTER
+Hora   :  05/10/2023 11:36:03 AM.	
+Mensage: Error al causar cuentas por pagar fr_facproveedor - modulo de compras
+Usuario:  IVONNE
+Hora   :  21/10/2023 06:48:54 PM.	
+Mensage: Error en comprobantes de egresos fr_compegreso - modulo tesoreria
+Usuario:  IVONNE
+Hora   :  02/11/2023 04:40:34 PM.	
+Mensage: Error al causar cuentas por pagar fr_facproveedor - modulo de compras
+Usuario:  IVONNE
+Hora   :  07/12/2023 02:27:00 PM.	
+Mensage: Error al causar cuentas por pagar fr_facproveedor - modulo de compras
+Usuario:  IVONNE
+Hora   :  18/12/2023 05:11:53 PM.	
+Mensage: Error al causar cuentas por pagar fr_facproveedor - modulo de compras
+Usuario:  IVONNE
+Hora   :  19/12/2023 01:40:04 PM.	
+Mensage: Error al agregar cuentas por pagar fr_saldoscxp_por_c - modulo de compras
+Usuario:  FSARMIEN
+Hora   :  16/05/2024 02:43:40 AM.	
+Mensage: Error al modificar causaciones de gastos fr_mod_facpro- modulo de compras
+Usuario:  FSARMIEN
+Hora   :  18/07/2024 01:35:14 PM.	
+Mensage: Error al agregar cuentas por pagar fr_saldoscxp_por_c - modulo de compras
+Usuario:  BGARCIA
+Hora   :  18/08/2024 05:53:37 PM

@@ -1,0 +1,1 @@
+select * from alm_variantes   

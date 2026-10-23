@@ -1,0 +1,12 @@
+begin tran
+UPDATE	alm_inventario   
+SET		alm_inventario.valprom  =  inv1.valprom,
+		alm_inventario.ucoart  =  inv1.ucoart,
+		alm_inventario.pvcart  =  inv1.pvcart
+FROM	alm_inventario as inv
+		INNER JOIN  (select codcto,codart,valprom,ucoart,pvcart from alm_inventario where codcto='001' ) 
+		as inv1 on inv.codart=inv1.codart 
+where	inv.codcto='012'   and inv.valprom=0 
+
+
+restore database okeysport with RECOVERY  

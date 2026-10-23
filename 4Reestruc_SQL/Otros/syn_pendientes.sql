@@ -1,0 +1,33 @@
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+SET ANSI_PADDING ON
+GO
+--drop table syn_pendientes
+CREATE TABLE [dbo].[SYN_PENDIENTES](
+ [ID] [numeric](20, 0)  NOT NULL,		
+ [cd_TIP_TRAN] [varchar](200) NOT NULL ,
+ [cd_BD_ORIG] [varchar](300) NOT NULL,
+ [cd_TBL_NAME] [varchar](300) NOT NULL,
+ [DSC_ERROR] [nvarchar](max) NOT NULL DEFAULT (''),
+ [Email_STAT] [varchar](3) NOT NULL DEFAULT ('PEN'),
+)
+GO
+
+SET ANSI_PADDING OFF
+GO
+
+ALTER TABLE [dbo].[SYN_PENDIENTES] ADD CONSTRAINT PK_ID_PENDIENTES PRIMARY KEY(ID);
+ALTER TABLE [dbo].[SYN_PENDIENTES] ADD  DEFAULT ('I') FOR [cd_TIP_TRAN]
+GO
+ALTER TABLE [dbo].[SYN_PENDIENTES] ADD  DEFAULT ('') FOR [cd_BD_ORIG]
+GO
+ALTER TABLE [dbo].[SYN_PENDIENTES] ADD  DEFAULT ('') FOR [cd_TBL_NAME]
+GO
+
+
+-------------------------------------
+

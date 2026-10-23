@@ -1,0 +1,57 @@
+,Aguila Negra,2218,4800,766
+,Aguila Light,2284,4800,137
+,Budweiser,2300,4000,0
+,Club Colombia,2900,5300,119
+,Coronita,2875,5300,832
+,Corona,3700,7800,114
+,Costeñita,1815,4800,96
+,Costeña Verde,1867,4800,678
+,Heineken,2300,4800,150
+,Lata Negra,1950,3000,0
+,Lata Costeña,2450,3000,0
+,Like,4400,6000,0
+,Miller,1979,4800,76
+,Poker,2216,4800,90
+,Redd`s,2890,3000,0
+,Smirnoff,5400,9800,23
+,Stella,3650,6800,25
+,Cubetazo Stella X 10und,32500,60000,0
+,Aguardiente Antioqueño Litro,56600,130000,10
+,Aguardiente Antioqueño 750ml,43600,110000,9
+,Aguardiente Antioqueño Panchita,22700,44000,15
+,Aguardiente Amarillo 750ml,45000,110000,4
+,Aguardiente 750 Ml Tapa Azul,45000,76000,0
+,Aguardiente Caja 1050ml,54000,85000,0
+,Black & White 700ml,39500,85000,0
+,Buchanans Master 750ml,162000,240000,2
+,Buchanans Deluxe 750ml,140000,240000,2
+,Garrafa Aguardiente Verde,90000,120000,0
+,Garrafa Medellin,120000,150000,0
+,Jw Sello Rojo 700ml,59000,105000,0
+,Medellin Panchita,26340,54000,14
+,Medellin 750ml,48000,120000,4
+,Medellin Litro,62000,140000,5
+,Old Parr 750ml,125000,220000,1
+,Smirnoff Lulo 750ml Vodka,40000,75000,0
+,Agua Personal,750,1800,94
+,Cigarrillo Lucky,7500,10000,61
+,Coca Cola 400ml,2500,3800,35
+,De Todito,3100,4800,19
+,Detodito 165 Gr Grande,7240,9800,33
+,Doritos 43 Gr Pequeño,2155,3500,0
+,Dorito 185 Gr Grande,6800,10000,0
+,Dorito 80 Gr Mediano,3500,5000,0
+,Electrolit,7350,9800,7
+,Espuma Carnavalera,4800,8000,0
+,Gatorade,3250,5800,52
+,Guantes,2000,3800,68
+,Mani Moto,1400,2500,0
+,Mechera,640,1000,27
+,Michelada,1000,2000,0
+,Papitas Margarita 36 Gr Pequeña,2000,3000,0
+,Soda Bretaña,2300,3800,21
+,Soda,2300,4000,0
+,Sporade,1000,1,0
+,Sporade 500 Ml,2166,4800,57
+,Talco Carnavalero,250,800,0
+,Vive 100 Pote,2200,4000,0 

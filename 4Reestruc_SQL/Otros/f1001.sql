@@ -1,0 +1,5 @@
+insert into con_medios(codigo,nombre,codmedio)values('5063','intereses y rendimientos financieros pagados','1001')
+insert into con_medios(codigo,nombre,codmedio)values('5064','devoluciones de saldos de aportes pensionales pagados','1001')
+insert into con_medios(codigo,nombre,codmedio)values('5065','Excedente pensionales de libre disponibilidad componente de capital pagados','1001')
+insert into con_medios(codigo,nombre,codmedio)values('5066','El valor del impuesto al consumo solicitado como deduccion','1001')
+insert into con_medios(codigo,nombre,codmedio)values('5067','El valor acumulado de los pagos o abonos en cuenta al exterior por consultoria','1001')

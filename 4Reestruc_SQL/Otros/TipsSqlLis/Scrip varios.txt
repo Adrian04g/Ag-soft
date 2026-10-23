@@ -1,0 +1,10 @@
+&&Tipo de columnas y longitud 
+select COLUMN_NAME as name,DATA_TYPE,CHARACTER_MAXIMUM_LENGTH as char,NUMERIC_PRECISION as num,NUMERIC_SCALE as dec
+from INFORMATION_SCHEMA.COLUMNS
+where TABLE_NAME='glb_unica'
+
+&&Default 
+alter table com_notastemp ADD DEFAULT GETDATE() FOR FECSYS
+--- borrarlo 
+sp_helpconstraint com_notastemp
+alter table com_notastemp drop constraint DF__com_notas__valor__3FEAE02A

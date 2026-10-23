@@ -1,0 +1,16 @@
+DECLARE @SqlQuery VARCHAR(300)
+DECLARE @QUERY VARCHAR(3000)
+DECLARE INDEXES CURSOR 
+FOR
+SELECT 'DROP INDEX ' + t.name + '.' + i.name as sqlQuery FROM SYS.indexes as i
+inner join sys.tables as t on (i.object_id = t.object_id)
+WHERE i.NAME LIKE 'MSmer%'
+OPEN INDEXES
+FETCH INDEXES INTO @SqlQuery
+WHILE (@@FETCH_STATUS = 0)
+ BEGIN 
+ FETCH INDEXES INTO @SqlQuery
+   EXEC (@SqlQuery)
+END
+CLOSE INDEXES
+DEALLOCATE INDEXES

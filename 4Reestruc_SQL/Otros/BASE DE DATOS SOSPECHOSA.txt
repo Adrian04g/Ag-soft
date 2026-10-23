@@ -1,0 +1,23 @@
+1
+USE master 
+GO 
+sp_configure 'allow updates', 1 
+GO 
+RECONFIGURE WITH OVERRIDE 
+GO
+2
+Alter Database TU_BASE Set Single_user;
+3
+Alter Database TU_BASE Set Emergency
+4
+DBCC checkdb (NAME_DATABASE, REPAIR_REBUILD);
+5
+DBCC checkdb (NAME_DATABASE, REPAIR_ALLOW, DATA_LOSS);
+6
+Alter Database TU_BASE Set MULTIUSER
+USE master 
+GO 
+SP_Configure 'allow updates', 0 
+GO 
+RECONFIGURE WITH OVERRIDE 
+GO

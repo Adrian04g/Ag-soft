@@ -1,0 +1,14 @@
+Revisar, estan quedando productos en P de una transaccion enviada.
+
+Revisar Con Lisseth las consultas en visual en cuanto a detalles de facturacion ya que estas no estan aumentando el item,
+por tal motivo se duplica la llave primaria. Inicialmente Pro_formulas , ven_facuota, ven_variantes.
+
+Colocar las tablas de traslados en la sincronizacion servidor  - cliente.
+
+Que los mensajes errados sean en color rojo y muestren en que tabla o que punto o instacia ocurrio el problema.
+
+Tablas parelas, kardex, promociones, saldos a favor.
+
+
+
+

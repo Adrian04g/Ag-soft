@@ -1,0 +1,7 @@
+.
+Mensage: Error Al Guardar Dcto en Boton_12 001  00025484 
+Usuario:  ANTONY
+Hora   :  23/10/2021 07:28:19 PM.
+Mensage: Error al registrar la Pre-factura 001  00060500 
+Usuario:  MARLON
+Hora   :  12/05/2024 09:41:41 PM

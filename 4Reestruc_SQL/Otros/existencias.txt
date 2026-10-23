@@ -1,0 +1,7 @@
+
+UPDATE	alm_inventario
+SET	alm_inventario.caninv  =  V.cantidad
+FROM	alm_inventario as i
+	INNER JOIN VACTinventario as v ON i.idemp  = V.idemp AND 
+	i.codcto   = V.codcto  and 
+	i.codart    = V.CODART 

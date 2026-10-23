@@ -1,0 +1,2 @@
+"C:\Program Files\Microsoft SQL Server\110\COM\replmerg.EXE"  -Publisher serverokey\okeysport -PublisherDB okeysport -Publication bogotasalitremov -PublisherSecurityMode 0  -PublisherLogin sa -PublisherPassword Okeysport123 -Distributor serverokey\okeysport -DistributorSecurityMode 0  -DistributorLogin sa -DistributorPassword Okeysport123 -Subscriber OKEYSALITRE-PC\SALITREPLAZA      -SubscriptionType 1  -SubscriberSecurityMode 1  -SubscriberDB okeysport
+ 

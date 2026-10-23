@@ -1,0 +1,2 @@
+#DEFINE mNit     800170222
+#DEFINE mReslic  lic20130419prb  

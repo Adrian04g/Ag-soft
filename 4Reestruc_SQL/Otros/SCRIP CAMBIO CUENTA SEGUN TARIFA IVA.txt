@@ -1,0 +1,31 @@
+** SCRIP CAMBIO DE CUENTAS SEGUN TARIFA IVAS**
+*********************************************************************************************************************************
+
+CASO SURTIDORA: CUENTAS INGRESO
+		19% - 41359501
+		5%  - 41359502
+		0%  - 41359503
+
+CUENTA APROVECHAMIENTO : 42950501
+
+
+*********************************************************************************************************************************
+
+-- CONSULTA VERIFICACION --
+
+select * from con_comprobante as con
+inner join ven_facdetalle as ven on (ven.tipfac=con.codtran)
+                          and (ven.codcto=con.codcto)
+						  and (ven.numfac= right(con.consec,8))
+						  where ven.ivaart='19.00' and codtran='FV' and codcue='42950501' AND CREDITO > 100
+*********************************************************************************************************************************
+
+-- ACTUALIZACION CUENTA SEGUN TARIFA --
+
+update con  set codcue='4295050' from con_comprobante as con
+inner join ven_facdetalle as ven on (ven.tipfac=con.codtran)
+                          and (ven.codcto=con.codcto)
+						  and (ven.numfac= right(con.consec,8))
+						  where ven.ivaart='19.00' and con.codtran='FV' and con.codcue='41359501' AND CREDITO > 100
+
+*********************************************************************************************************************************

@@ -1,0 +1,4 @@
+.
+Mensage: Error al registrar Anulacion de Prefactura 001  00070297  
+Usuario:  BGARCIA
+Hora   :  20/04/2025 09:39:07 PM

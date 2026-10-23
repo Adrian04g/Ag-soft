@@ -1,0 +1,128 @@
+# --- Secretos y configuración local ---
+Global.ini
+Global.ini.txt
+*.ini
+*.config
+*.secret
+*.secrets
+*.env
+*.env.*
+!.env.example
+*password*
+*passwd*
+*credential*
+*token*
+*secret*
+
+# --- Bases de datos, respaldos y datos de producción ---
+*.bak
+*.BAK
+*.tbk
+*.TBK
+*.mdf
+*.ndf
+*.ldf
+*.db
+*.dbf
+*.fpt
+*.dbc
+*.dct
+*.dcx
+*.bcp
+Base de Datos/
+
+# --- Paquetes y archivos binarios compilados ---
+*.exe
+*.dll
+*.fxp
+*.fll
+*.ocx
+*.lib
+*.obj
+*.pdb
+*.bin
+*.rar
+*.zip
+*.7z
+*.tar
+*.gz
+
+# --- Archivos generados por Visual FoxPro ---
+FOXUSER.*
+foxuser.*
+*.err
+*.ERR
+*.log
+*.LOG
+*.tmp
+*.TMP
+*.bak
+*.BAK
+
+# --- Temporales del sistema operativo ---
+Thumbs.db
+desktop.ini
+[Dd]esktop.ini
+.DS_Store
+$RECYCLE.BIN/
+System Volume Information/
+
+# --- Temporales de editores e IDE ---
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+.idea/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+*.swp
+*.swo
+*~
+
+# --- Carpetas de compilación y dependencias ---
+bin/
+obj/
+build/
+dist/
+out/
+node_modules/
+packages/
+__pycache__/
+.pytest_cache/
+.venv/
+venv/
+
+# --- Archivos multimedia y recursos no necesarios para el código ---
+*.avi
+*.AVI
+*.bmp
+*.BMP
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.ico
+*.mp3
+*.wav
+
+# --- Exportaciones y hojas auxiliares generadas ---
+*.xlsx
+*.xls
+*.ods
+*.csv
+
+# --- Archivos de sesión y temporales del asistente ---
+.copilot/
+.cursor/
+.claude/
+
+# --- Archivos explícitamente locales del proyecto ---
+Temp/
+temp/
+debug.log
+VFP9rerr.log
+VFP9Rerr.log
+
