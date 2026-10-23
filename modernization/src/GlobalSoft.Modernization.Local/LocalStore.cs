@@ -103,7 +103,8 @@ public sealed class LocalStore
 
         await InitializeAsync(cancellationToken);
         await using var connection = await OpenAsync(cancellationToken);
-        await using var transaction = await connection.BeginTransactionAsync(cancellationToken);
+        await using var transaction =
+            (SqliteTransaction)await connection.BeginTransactionAsync(cancellationToken);
 
         var existingCommand = connection.CreateCommand();
         existingCommand.Transaction = transaction;
