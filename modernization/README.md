@@ -14,7 +14,7 @@ Esta carpeta contiene una base **ejecutable, aislada y reversible** para moderni
 ## Estructura
 
 - `src/GlobalSoft.Modernization.Api`: API central (REST/OpenAPI/health/sync).
-- `src/GlobalSoft.Modernization.Local`: local SQLite bootstrap for offline operation.
+- `src/GlobalSoft.Modernization.Local`: local SQLite store for offline sales and synchronization queue.
 - `admin-web`: frontend administrativo React + TypeScript.
 - `tests/GlobalSoft.Modernization.Api.Tests`: pruebas automatizadas.
 - `docs/`: descubrimiento, dominio, arquitectura y decisiones.
@@ -38,9 +38,19 @@ Build local del frontend:
 
 ```bash
 cd admin-web
-npm install
+npm ci
 npm run build
 ```
+
+Preparar la base local SQLite:
+
+```bash
+dotnet run --project src/GlobalSoft.Modernization.Local -- ./globalsoft-local.db
+```
+
+El almacén local crea ventas atómicas y una cola `sync_queue` durable. La aplicación
+visual del punto de venta y el cliente HTTP de sincronización se construirán sobre
+este componente; todavía no debe usarse con operaciones fiscales reales.
 
 ## Levantar con Docker Compose
 

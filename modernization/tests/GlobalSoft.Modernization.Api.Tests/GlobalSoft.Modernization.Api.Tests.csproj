@@ -22,6 +22,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\src\GlobalSoft.Modernization.Api\GlobalSoft.Modernization.Api.csproj" />
+    <ProjectReference Include="..\..\src\GlobalSoft.Modernization.Local\GlobalSoft.Modernization.Local.csproj" />
   </ItemGroup>
 
 </Project>

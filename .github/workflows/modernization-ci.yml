@@ -35,6 +35,9 @@ jobs:
       - name: Test
         run: dotnet test GlobalSoft.Modernization.slnx --no-build
 
+      - name: Smoke test local SQLite store
+        run: dotnet run --project src/GlobalSoft.Modernization.Local --no-build -- /tmp/globalsoft-local.db
+
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
@@ -43,7 +46,7 @@ jobs:
       - name: Build admin web
         working-directory: modernization/admin-web
         run: |
-          npm install --no-audit --no-fund
+          npm ci --no-audit --no-fund
           npm run build
 
       - name: Validate prohibited files
