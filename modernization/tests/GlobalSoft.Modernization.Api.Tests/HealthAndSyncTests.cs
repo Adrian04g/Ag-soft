@@ -1,7 +1,6 @@
 using System.Net;
 using System.Net.Http.Json;
 using GlobalSoft.Modernization.Api.Contracts;
-using GlobalSoft.Modernization.Api.Domain.Entities;
 
 namespace GlobalSoft.Modernization.Api.Tests;
 
@@ -46,7 +45,7 @@ public sealed class HealthAndSyncTests : IClassFixture<ApiFactory>
         Assert.Equal(HttpStatusCode.Accepted, first.StatusCode);
         Assert.True(second.StatusCode == HttpStatusCode.OK || second.StatusCode == HttpStatusCode.Accepted);
 
-        var operations = await client.GetFromJsonAsync<List<SyncOperation>>("/api/v1/sync/operations");
+        var operations = await client.GetFromJsonAsync<List<SyncOperationResponse>>("/api/v1/sync/operations");
         Assert.NotNull(operations);
 
         var count = operations.Count(x => x.OperationId == request.OperationId);

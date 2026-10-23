@@ -1,6 +1,7 @@
 <Solution>
   <Folder Name="/src/">
     <Project Path="src/GlobalSoft.Modernization.Api/GlobalSoft.Modernization.Api.csproj" />
+    <Project Path="src/GlobalSoft.Modernization.Local/GlobalSoft.Modernization.Local.csproj" />
   </Folder>
   <Folder Name="/tests/">
     <Project Path="tests/GlobalSoft.Modernization.Api.Tests/GlobalSoft.Modernization.Api.Tests.csproj" />

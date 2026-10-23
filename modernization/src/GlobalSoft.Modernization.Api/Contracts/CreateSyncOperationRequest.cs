@@ -22,7 +22,7 @@ public sealed class CreateSyncOperationRequest
     [Required, MinLength(1), MaxLength(40)]
     public string OperationType { get; set; } = string.Empty;
 
-    [Required, MinLength(2)]
+    [Required, MinLength(2), MaxLength(65536)]
     public string Payload { get; set; } = string.Empty;
 
     [Range(1, long.MaxValue)]

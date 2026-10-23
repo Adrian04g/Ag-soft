@@ -35,5 +35,16 @@ jobs:
       - name: Test
         run: dotnet test GlobalSoft.Modernization.slnx --no-build
 
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22.x'
+
+      - name: Build admin web
+        working-directory: modernization/admin-web
+        run: |
+          npm install --no-audit --no-fund
+          npm run build
+
       - name: Validate prohibited files
         run: ./scripts/validate-prohibited-files.sh

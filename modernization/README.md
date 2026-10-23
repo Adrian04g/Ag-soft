@@ -14,6 +14,8 @@ Esta carpeta contiene una base **ejecutable, aislada y reversible** para moderni
 ## Estructura
 
 - `src/GlobalSoft.Modernization.Api`: API central (REST/OpenAPI/health/sync).
+- `src/GlobalSoft.Modernization.Local`: local SQLite bootstrap for offline operation.
+- `admin-web`: frontend administrativo React + TypeScript.
 - `tests/GlobalSoft.Modernization.Api.Tests`: pruebas automatizadas.
 - `docs/`: descubrimiento, dominio, arquitectura y decisiones.
 - `migration/`: etapas `01_extract..06_validate` en modo auditable.
@@ -23,12 +25,21 @@ Esta carpeta contiene una base **ejecutable, aislada y reversible** para moderni
 
 - .NET SDK 8+
 - Docker y Docker Compose
+- Node.js 22+ (solo para `admin-web`)
 
 ## Ejecución local rápida
 
 ```bash
 cd modernization
 dotnet test
+```
+
+Build local del frontend:
+
+```bash
+cd admin-web
+npm install
+npm run build
 ```
 
 ## Levantar con Docker Compose
@@ -50,6 +61,7 @@ API (desarrollo):
 
 ## Limitaciones actuales
 
-- La app web React + TypeScript y la app local .NET se dejan para la siguiente iteración funcional.
+- La app web y la app local son todavía una base funcional mínima, no un POS listo para producción.
+- La sincronización registra operaciones y ofrece push/pull; todavía no procesa todas las reglas de negocio.
 - Esta iteración no conecta ni migra datos reales del legado.
 - Se priorizó la base segura y auditable para continuar en incrementos.
