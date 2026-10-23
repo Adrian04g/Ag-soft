@@ -22,6 +22,12 @@ public sealed class LocalStoreTests
             var secondId = await store.SaveSaleAsync(sale);
 
             Assert.Equal(firstId, secondId);
+            var pending = await store.GetPendingOperationsAsync();
+            Assert.Single(pending);
+            Assert.Equal(sale.OperationId, pending[0].OperationId);
+
+            await store.MarkOperationsAsync([sale.OperationId], "Applied");
+            Assert.Empty(await store.GetPendingOperationsAsync());
         }
         finally
         {

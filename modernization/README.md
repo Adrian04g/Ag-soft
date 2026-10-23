@@ -72,6 +72,6 @@ API (desarrollo):
 ## Limitaciones actuales
 
 - La app web y la app local son todavía una base funcional mínima, no un POS listo para producción.
-- La sincronización registra operaciones y ofrece push/pull; todavía no procesa todas las reglas de negocio.
+- La sincronización local ya puede leer la cola y enviar lotes al endpoint `push`; el endpoint `ack` confirma transporte, pero todavía no procesa todas las reglas de negocio.
 - Esta iteración no conecta ni migra datos reales del legado.
 - Se priorizó la base segura y auditable para continuar en incrementos.

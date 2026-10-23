@@ -17,6 +17,17 @@ public sealed record LocalSale(
 
 public sealed record LocalPayment(string Method, decimal Amount);
 
+public sealed record LocalSyncOperation(
+    Guid OperationId,
+    Guid DeviceId,
+    Guid SiteId,
+    string Entity,
+    string EntityId,
+    string OperationType,
+    string Payload,
+    long Sequence,
+    DateTime CreatedAtUtc);
+
 public sealed class LocalStore
 {
     private readonly string _connectionString;
@@ -193,6 +204,83 @@ public sealed class LocalStore
 
         await transaction.CommitAsync(cancellationToken);
         return saleId;
+    }
+
+    public async Task<IReadOnlyList<LocalSyncOperation>> GetPendingOperationsAsync(
+        int limit = 100,
+        CancellationToken cancellationToken = default)
+    {
+        if (limit is < 1 or > 100)
+        {
+            throw new ArgumentOutOfRangeException(nameof(limit), "Limit must be between 1 and 100.");
+        }
+
+        await InitializeAsync(cancellationToken);
+        await using var connection = await OpenAsync(cancellationToken);
+        var command = connection.CreateCommand();
+        command.CommandText = """
+            SELECT operation_id, device_id, site_id, entity, entity_id,
+                   operation_type, payload, sequence, created_at_utc
+            FROM sync_queue
+            WHERE status = 'Pending'
+            ORDER BY sequence
+            LIMIT $limit
+            """;
+        command.Parameters.AddWithValue("$limit", limit);
+
+        var operations = new List<LocalSyncOperation>();
+        await using var reader = await command.ExecuteReaderAsync(cancellationToken);
+        while (await reader.ReadAsync(cancellationToken))
+        {
+            operations.Add(new LocalSyncOperation(
+                Guid.Parse(reader.GetString(0)),
+                Guid.Parse(reader.GetString(1)),
+                Guid.Parse(reader.GetString(2)),
+                reader.GetString(3),
+                reader.GetString(4),
+                reader.GetString(5),
+                reader.GetString(6),
+                reader.GetInt64(7),
+                DateTime.Parse(reader.GetString(8), null, System.Globalization.DateTimeStyles.RoundtripKind)));
+        }
+
+        return operations;
+    }
+
+    public async Task MarkOperationsAsync(
+        IEnumerable<Guid> operationIds,
+        string status,
+        string? error = null,
+        CancellationToken cancellationToken = default)
+    {
+        ArgumentException.ThrowIfNullOrWhiteSpace(status);
+        var ids = operationIds.Distinct().ToArray();
+        if (ids.Length == 0)
+        {
+            return;
+        }
+
+        await InitializeAsync(cancellationToken);
+        await using var connection = await OpenAsync(cancellationToken);
+        await using var transaction = (SqliteTransaction)await connection.BeginTransactionAsync(cancellationToken);
+        foreach (var operationId in ids)
+        {
+            var command = connection.CreateCommand();
+            command.Transaction = transaction;
+            command.CommandText = """
+                UPDATE sync_queue
+                SET status = $status,
+                    retry_count = retry_count + CASE WHEN $status = 'Applied' THEN 0 ELSE 1 END,
+                    last_error = $lastError
+                WHERE operation_id = $operationId
+                """;
+            command.Parameters.AddWithValue("$status", status);
+            command.Parameters.AddWithValue("$lastError", (object?)error ?? DBNull.Value);
+            command.Parameters.AddWithValue("$operationId", operationId.ToString("D"));
+            await command.ExecuteNonQueryAsync(cancellationToken);
+        }
+
+        await transaction.CommitAsync(cancellationToken);
     }
 
     private static void AddSaleParameters(

@@ -183,6 +183,25 @@ public sealed class SyncController(GlobalSoftDbContext db) : ControllerBase
             .OrderBy(x => x.Sequence).Take(1000).ToListAsync(cancellationToken))
             .Select(ToResponse).ToList();
 
+    [HttpPost("ack")]
+    public async Task<ActionResult<List<SyncOperationResponse>>> Acknowledge(
+        AcknowledgeSyncRequest request,
+        CancellationToken cancellationToken)
+    {
+        var operations = await db.SyncOperations
+            .Where(x => request.OperationIds.Contains(x.OperationId))
+            .ToListAsync(cancellationToken);
+
+        foreach (var operation in operations)
+        {
+            operation.Status = SyncOperationStatus.Applied;
+            operation.LastError = null;
+        }
+
+        await db.SaveChangesAsync(cancellationToken);
+        return Ok(operations.Select(ToResponse).ToList());
+    }
+
     private static SyncOperationResponse ToResponse(SyncOperation operation) =>
         new(operation.OperationId, operation.DeviceId, operation.SiteId, operation.Entity,
             operation.EntityId, operation.OperationType, operation.Sequence,
